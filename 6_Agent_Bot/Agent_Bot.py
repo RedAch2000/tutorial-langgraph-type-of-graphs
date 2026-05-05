@@ -35,6 +35,13 @@ agent = graph.compile()
 
 
 # main execution
+# user_input = input("Enter your message: ")
+# initial_state = AgentState(messages=[HumanMessage(content=user_input)])
+# agent.invoke(initial_state)
+
+# looping execution
 user_input = input("Enter your message: ")
-initial_state = AgentState(messages=[HumanMessage(content=user_input)])
-agent.invoke(initial_state)
+while user_input.lower() != "exit":
+    initial_state = AgentState(messages=[HumanMessage(content=user_input)])
+    agent.invoke(initial_state)
+    user_input = input("Enter your message: ")
